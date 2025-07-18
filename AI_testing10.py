@@ -8,10 +8,6 @@ from numpy.random import randn
 def random_matrix_init(linhas:int, colunas:int, scope:tuple):
     retorno = []
     for i in range(linhas):
-    #    retorno.append([])
-    #    for j in range(colunas):
-    #        retorno[i].append(uniform(scope[0], scope[1]))
-    #    #print(retorno[i])
         std = sqrt(2.0 / colunas)
         numbers = randn(colunas)
         scaled = numbers * std
@@ -106,7 +102,7 @@ def deep_copy(matriz2:list):
             placeholder[i].append(matriz2[i][j])
     return placeholder
 
-#def unison_shuffled_copies(a, b):   #this code was copied from stack overflow
+#def unison_shuffled_copies(a, b):   #this code was taken from stack overflow
 #    assert len(a) == len(b)
 #    p = np.random.permutation(len(a))
 #    return a[p], b[p]
@@ -190,7 +186,6 @@ def w_gradient(outputs:list, sum_matrix:list, I:int):
         else:
             weight_gradient = matrix_sum(weight_gradient, matrix_mult(new_copy, p_output_matrix))
         j = len(outputs)
-    #weight_gradient = scalar_mult(1/len(outputs), weight_gradient)
     return weight_gradient
 
 def backprop(X_train:list, Y_train:list, NN:list, error_function:str, learning_rate:float):
